@@ -1,0 +1,8 @@
+error[E0277]: the trait bound `(i8,): TypeAt<1_usize>` is not satisfied
+ --> $DIR/out_of_bounds.rs:4:17
+  |
+4 |     let _: _  = <(i8,) as TypeAt<1>>::Type::default();
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `TypeAt<1_usize>` is not implemented for `(i8,)`
+  |
+  = help: the following implementations were found:
+            <(T1,) as TypeAt<0_usize>>

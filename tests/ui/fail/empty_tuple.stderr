@@ -1,0 +1,5 @@
+error[E0277]: the trait bound `(): TypeAt<0_usize>` is not satisfied
+ --> $DIR/empty_tuple.rs:4:17
+  |
+4 |     let _: _  = <() as TypeAt<0>>::Type::default();
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^ the trait `TypeAt<0_usize>` is not implemented for `()`
