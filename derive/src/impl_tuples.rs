@@ -25,15 +25,14 @@ pub fn impl_type_at_for_tuples() -> TokenStream2 {
 
     fn impl_type_at_for_subtuple(sub_tuple: &[Ident]) -> TokenStream2 {
         let len = sub_tuple.len();
-        let impls = (0..len)
-            .map(|at| {
-                let type_at = &sub_tuple[at];
-                quote! {
-                    impl< #( #sub_tuple ),* > TypeAt<#at> for ( #( #sub_tuple , )* ) {
-                        type Type = #type_at;
-                    }
+        let impls = (0..len).map(|at| {
+            let type_at = &sub_tuple[at];
+            quote! {
+                impl< #( #sub_tuple ),* > TypeAt<#at> for ( #( #sub_tuple , )* ) {
+                    type Type = #type_at;
                 }
-            });
+            }
+        });
         quote! {
             #( #impls )*
         }
