@@ -12,11 +12,13 @@ categories = ["no-std", "rust-patterns"]
 edition = "2021"
 
 [dependencies]
-type_at_derive = { path = "derive", optional = true }
+type_at_derive = { path = "derive" }
 
 [dev-dependencies]
 trybuild = "1"
 
 [features]
-default = ["derive"]
-derive = []
+default = []
+
+[workspace]
+members = ["derive"]
