@@ -19,7 +19,7 @@
 /// # Usage
 ///
 /// ```
-/// # use tuple_type::TypeAt;
+/// # use type_at::TypeAt;
 /// let _: i8  = <(i8, i16, i32, i64) as TypeAt<0>>::Type::default();
 /// let _: i16 = <(i8, i16, i32, i64) as TypeAt<1>>::Type::default();
 /// let _: i32 = <(i8, i16, i32, i64) as TypeAt<2>>::Type::default();
@@ -30,9 +30,9 @@ pub trait TypeAt<const N: usize> {
     type Type;
 }
 
-macro_rules! impl_tuple_type {
+macro_rules! impl_type_at {
     ( $( $t:ident ),* $(,)? ) => {
-        impl_tuple_type! {
+        impl_type_at! {
             @rec
             head = [],
             rest = [ $( $t ),* ],
@@ -43,12 +43,12 @@ macro_rules! impl_tuple_type {
         head = [ $first_head:ident $( , $head:ident )* $(,)? ],
         rest = [ $first_rest:ident $( , $rest:ident )* $(,)? ] $(,)?
     ) => {
-        impl_tuple_type! {
+        impl_type_at! {
             @rec
             head = [ $first_head $( ,$head )* , $first_rest ],
             rest = [ $( $rest ),* ],
         }
-        impl_tuple_type! {
+        impl_type_at! {
             @imp
             head = [ ],
             current = $first_head,
@@ -61,12 +61,12 @@ macro_rules! impl_tuple_type {
         head = [ ],
         rest = [ $first_rest:ident $( , $rest:ident )* $(,)? ] $(,)?
     ) => {
-        impl_tuple_type! {
+        impl_type_at! {
             @rec
             head = [ $first_rest ],
             rest = [ $( $rest ),* ],
         }
-        impl_tuple_type! {
+        impl_type_at! {
             @imp
             head = [ ],
             current = $first_rest,
@@ -94,7 +94,7 @@ macro_rules! impl_tuple_type {
             type Type = $current;
         }
 
-        impl_tuple_type! {
+        impl_type_at! {
             @imp
             head = [ $( $head ,)* $current ],
             current = $rest_head,
@@ -118,7 +118,7 @@ macro_rules! impl_tuple_type {
         }
     }
 }
-impl_tuple_type! {
+impl_type_at! {
     A, B, C, D, E, F,
     G, H, I, J, K, L,
 }

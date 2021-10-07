@@ -5,4 +5,4 @@ error[E0277]: the trait bound `(i8,): TypeAt<1_usize>` is not satisfied
   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `TypeAt<1_usize>` is not implemented for `(i8,)`
   |
   = help: the following implementations were found:
-            <(T1,) as TypeAt<0_usize>>
+            <(A,) as TypeAt<0_usize>>

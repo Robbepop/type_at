@@ -5,7 +5,7 @@ Provides a trait `TypeAt` which allow to query the n-th type of a Rust tuple at 
 ## Example: Simple
 
 ```rust
-use tuple_type::TypeAt;
+use type_at::TypeAt;
 
 let _: i8  = <(i8, i16, i32, i64) as TypeAt<0>>::Type::default();
 let _: i16 = <(i8, i16, i32, i64) as TypeAt<1>>::Type::default();
@@ -16,7 +16,7 @@ let _: i64 = <(i8, i16, i32, i64) as TypeAt<3>>::Type::default();
 ## Example: Nested
 
 ```rust
-use tuple_type::TypeAt;
+use type_at::TypeAt;
 
 let _: i64 = <<<<(i8, (i16, (i32, (i64,))))
     as TypeAt<1>>::Type // (i16, (i32, (i64,)))

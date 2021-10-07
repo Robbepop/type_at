@@ -1,4 +1,4 @@
-use tuple_type::TypeAt;
+use type_at::TypeAt;
 
 #[rustfmt::skip]
 fn main() {
