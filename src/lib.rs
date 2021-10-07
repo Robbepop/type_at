@@ -14,6 +14,8 @@
 
 #![no_std]
 
+pub use type_at_derive::TypeAt;
+
 /// Reflects the N-th type of a tuple.
 ///
 /// # Usage
