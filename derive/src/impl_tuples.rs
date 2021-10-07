@@ -19,7 +19,7 @@ pub fn impl_type_at_for_tuples() -> TokenStream2 {
     ].map(|name| format_ident!("{}", name));
     let len_index_names = index_names.len();
 
-    let impls = (0..len_index_names)
+    let impls = (0..=len_index_names)
         .map(|n| &index_names[0..n])
         .map(impl_type_at_for_subtuple);
 
