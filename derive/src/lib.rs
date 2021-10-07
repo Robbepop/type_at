@@ -10,7 +10,7 @@ pub fn impl_type_at_for_tuples(input: TokenStream) -> TokenStream {
     impl_tuples::impl_type_at_for_tuples().into()
 }
 
-/// Derives an implementation for the [`ConstDefault`] trait.
+/// Derives an implementation for the [`TypeAt`] trait.
 ///
 /// # Note
 ///
