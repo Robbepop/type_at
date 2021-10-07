@@ -9,16 +9,10 @@ use quote::{
 
 /// Implements the `TypeAt` trait for tuples of up to 26 members.
 pub fn impl_type_at_for_tuples() -> TokenStream2 {
-    #[rustfmt::skip]
-    let index_names = [
-        "A", "B", "C", "D", "E", "F",
-        "G", "H", "I", "J", "K", "L",
-        "M", "N", "O", "P", "Q", "R",
-        "S", "T", "U", "V", "W", "X",
-        "Y", "Z",
-    ].map(|name| format_ident!("{}", name));
+    let index_names = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        .map(char::from)
+        .map(|name| format_ident!("{}", name));
     let len_index_names = index_names.len();
-
     let impls = (0..=len_index_names)
         .map(|n| &index_names[0..n])
         .map(impl_type_at_for_subtuple);
