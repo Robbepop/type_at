@@ -26,7 +26,7 @@
 /// let _: i64 = <(i8, i16, i32, i64) as TypeAt<3>>::Type::default();
 /// ```
 pub trait TypeAt<const N: usize> {
-    /// The N-th tuple type.
+    /// The N-th type of the tuple.
     type Type;
 }
 type_at_derive::impl_type_at_for_tuples!();
