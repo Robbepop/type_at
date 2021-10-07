@@ -8,7 +8,6 @@ use quote::{
 };
 
 /// Implements the `TypeAt` trait for tuples of up to 26 members.
-#[doc(hidden)]
 pub fn impl_type_at_for_tuples() -> TokenStream2 {
     #[rustfmt::skip]
     let index_names = [
