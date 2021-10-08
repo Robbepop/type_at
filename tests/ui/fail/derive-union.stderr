@@ -1,0 +1,7 @@
+error: TypeAt derive only works on struct types.
+ --> tests/ui/fail/derive-union.rs:3:10
+  |
+3 | #[derive(TypeAt)]
+  |          ^^^^^^
+  |
+  = note: this error originates in the derive macro `TypeAt` (in Nightly builds, run with -Z macro-backtrace for more info)

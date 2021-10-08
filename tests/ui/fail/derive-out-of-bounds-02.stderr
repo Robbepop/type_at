@@ -1,0 +1,9 @@
+error[E0277]: the trait bound `Struct: TypeAt<2_usize>` is not satisfied
+ --> tests/ui/fail/derive-out-of-bounds-02.rs:7:17
+  |
+7 |     let _: _  = <Struct as TypeAt<2>>::Type::default();
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `TypeAt<2_usize>` is not implemented for `Struct`
+  |
+  = help: the following implementations were found:
+            <Struct as TypeAt<0_usize>>
+            <Struct as TypeAt<1_usize>>

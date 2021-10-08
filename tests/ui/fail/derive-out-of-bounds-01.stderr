@@ -1,0 +1,9 @@
+error[E0277]: the trait bound `TupleStruct: TypeAt<2_usize>` is not satisfied
+ --> tests/ui/fail/derive-out-of-bounds-01.rs:7:17
+  |
+7 |     let _: _  = <TupleStruct as TypeAt<2>>::Type::default();
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `TypeAt<2_usize>` is not implemented for `TupleStruct`
+  |
+  = help: the following implementations were found:
+            <TupleStruct as TypeAt<0_usize>>
+            <TupleStruct as TypeAt<1_usize>>
