@@ -25,6 +25,26 @@ let _: i64 = <<<<(i8, (i16, (i32, (i64,))))
     as TypeAt<0>>::Type::default();
 ```
 
+## Example: Derive
+
+```rust
+#[derive(TypeAt)]
+pub struct TupleStruct(i8, i16, i32);
+
+let _: i8   = <TupleStruct as TypeAt<0>>::Type::default();
+let _: i16  = <TupleStruct as TypeAt<1>>::Type::default();
+let _: i32  = <TupleStruct as TypeAt<2>>::Type::default();
+```
+
+```rust
+#[derive(TypeAt)]
+pub struct Struct { a: i8, b: i16, c: i32 }
+
+let _: i8   = <Struct as TypeAt<0>>::Type::default();
+let _: i16  = <Struct as TypeAt<1>>::Type::default();
+let _: i32  = <Struct as TypeAt<2>>::Type::default();
+```
+
 ## License
 
 Licensed under either of
