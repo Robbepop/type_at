@@ -15,7 +15,7 @@ edition = "2021"
 type_at_derive = { version = "0.1", path = "derive" }
 
 [dev-dependencies]
-trybuild = "1"
+trybuild = { version = "1", features = ["diff"] }
 
 [features]
 default = []
