@@ -1,6 +1,6 @@
 # Type Indexing into Rust Tuples
 
-Provides a trait `TypeAt` which allow to query the n-th type of a Rust tuple at compile time.
+Provides a trait `TypeAt` which allow to query the n-th type of a Rust tuple or struct at compile time.
 
 ## Example: Simple
 
