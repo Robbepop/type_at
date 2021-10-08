@@ -27,7 +27,7 @@ pub fn derive_type_at(input: TokenStream2) -> Result<TokenStream2, syn::Error> {
         _ => {
             return Err(Error::new(
                 Span::call_site(),
-                "ConstDefault derive only works on struct types",
+                "TypeAt derive only works on struct types.",
             ))
         }
     };
